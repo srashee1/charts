@@ -23,7 +23,7 @@ localstack:
   enabled: false
 
 kafka:
-  #comma delimited list of kafka seed brokersß
+  #comma delimited list of kafka seed brokers
   strimziCluster: streaming-service # http://strimzi.io/docs/0.4.0/#_topic_configmap
   inputTopicPrefix: "raw"
   outputTopicPrefix: "transformed"
