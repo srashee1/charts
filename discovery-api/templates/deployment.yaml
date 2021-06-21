@@ -19,16 +19,17 @@ spec:
       containers:
       - name: discovery-api
         image: {{ .Values.image.name }}:{{ .Values.image.tag }}
-        imagePullPolicy: Always
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         env:
           - name: KAFKA_BROKERS
-            value: {{ .Values.kafka.brokers }}
+            value: {{ .Values.global.kafka.brokers }}
+            # todo make sure all of these use globals that need it
           - name: REDIS_HOST
-            value: {{ .Values.redis.host }}
+            value: {{ .Values.global.redis.host }}
           - name: REDIS_PASSWORD
-            value: {{ .Values.redis.password }}
+            value: {{ .Values.global.redis.password }}
           - name: PRESTO_URL
             value: {{ .Values.presto.url }}
           - name: PRESTO_CATALOG
@@ -52,16 +53,11 @@ spec:
               secretKeyRef:
                 name: discovery-api-presign-key
                 key: discovery-api-presign-key
-          - name: LDAP_PASS
-            valueFrom:
-              secretKeyRef:
-                name: ldap
-                key: password
           - name: GUARDIAN_KEY
             valueFrom:
               secretKeyRef:
-                name: guardian
-                key: secret_key
+                name: guardian-secret-key
+                key: guardian-secret-key
           - name: HOSTED_FILE_BUCKET
             value: {{ .Values.environment }}-{{ .Values.s3.hostedFileBucket }}
           - name: HOSTED_FILE_REGION

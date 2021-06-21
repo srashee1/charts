@@ -18,7 +18,7 @@ ingress:
 image:
   name: smartcitiesdata/discovery_api
   tag: development
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 monitoring:
   targetPort: 9002
@@ -26,14 +26,6 @@ monitoring:
 nodeSelector: {}
 tolerations: []
 affinity: {}
-
-kafka:
-  #comma delimited list of kafka seed brokers
-  brokers: streaming-service-kafka-bootstrap.streaming-prime:9092
-
-redis:
-  host: discovery-api-redis-master
-  password: ""
 
 presto:
   url: "http://presto-endpoint:8080"
@@ -52,7 +44,7 @@ s3:
   hostedFileRegion: "us-west-2"
 
 vault:
-  endpoint: http://vault.example.com:8200
+  endpoint: vault.vault:8200
 
 postgres:
   host: "example.com"
@@ -71,3 +63,6 @@ auth:
   jwks_endpoint: "https://example.com/.well-known/jwks.json"
   jwt_issuer: "https://example.com/"
   user_info_endpoint: "https://example.com/userinfo"
+
+secrets:
+    discoveryApiPresignKey: ""

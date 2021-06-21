@@ -1,8 +1,7 @@
 global:
   aws:
     region: us-west-2
-  buckets:
-    hostedFileBucket: ""
+    bucket: "master-chart-hosted-dataset-files"
   kafka:
     brokers: pipeline-kafka-bootstrap:9092
   presto:

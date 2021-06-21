@@ -6,19 +6,6 @@ image:
   tag: development
   pullPolicy: Always
 
-ingress:
-  enabled: false
-  scheme: ""
-  subnets: ""
-  securityGroups: ""
-  certificateARN: ""
-  waf_acl_arn: ""
-  dnsZone: "localhost"
-  root_dns_zone: "localhost"
-
-kafka:
-  brokers: data-broker:9092
-
 replicaCount: 1
 
 monitoring:
@@ -28,6 +15,3 @@ service:
   type: NodePort
   port: 80
   targetPort: 4000
-
-redis:
-  host: redis.external-services

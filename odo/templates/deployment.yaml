@@ -34,7 +34,7 @@ spec:
         - name: CLOUD_REGION
           value: {{ .Values.global.aws.region }}
         - name: HOSTED_FILE_BUCKET
-          value: {{ .Values.global.buckets.hostedFileBucket }}
+          value: {{ .Values.global.aws.bucket }}
         - name: KAFKA_BROKERS
           value: {{ .Values.global.kafka.brokers | default (include "kafka.brokerservice" .) }}
         - name: REDIS_HOST
