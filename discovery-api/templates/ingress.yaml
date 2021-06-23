@@ -1,5 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
+# Todo: Should we add global + not global template block
+#   to the ingress yaml?
 metadata:
   name: discovery-api
   namespace: {{ .Release.Namespace }}
@@ -7,19 +9,22 @@ metadata:
 {{- if .Values.ingress.annotations }}
 {{ toYaml .Values.ingress.annotations | trim | indent 4 }}
 {{- end }}
+{{- if .Values.global.ingress.annotations }}
+{{ toYaml .Values.global.ingress.annotations | trim | indent 4 }}
+{{- end }}
 spec:
   backend:
     serviceName: {{ .Values.service.name }}
     servicePort: {{ .Values.service.port }}
   rules:
-  - host: data.{{ .Values.ingress.rootDnsZone }}
+  - host: {{ .Values.ingress.rootDnsZone }}
     http:
       paths:
       - path: /*
         backend:
           serviceName: redirect
           servicePort: use-annotation
-  - host: data.{{ .Values.ingress.dnsZone }}
+  - host: {{ .Values.ingress.dnsZone }}
     http:
       paths:
       - path: /*

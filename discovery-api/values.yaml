@@ -1,3 +1,7 @@
+# todo: should these be in chart level values? 
+#   do all charts list all the values they need?
+#   could we describe why we're defining global at the chart
+#   level.
 global:
   aws:
     region: us-west-2
@@ -30,6 +34,9 @@ global:
     port: 80
 
 replicaCount: 3
+
+ingress:
+  annotations:
 
 service:
   name: discovery-api
