@@ -41,7 +41,7 @@ presto:
   ingress:
     enable: false
     annotations:
-      alb.ingress.kubernetes.io/healthcheck-path: /v1/cluster
+      alb.ingress.kubernetes.io/-path: /v1/cluster
 
 metastore:
   jvm:

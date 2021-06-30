@@ -36,6 +36,8 @@ andi:
   enabled: true
 kafka:
   enabled: true
+discovery-api:
+  enabled: true
 
 kubernetes-data-platform:
   enabled: true

@@ -15,3 +15,6 @@ service:
   type: NodePort
   port: 80
   targetPort: 4000
+
+ingress:
+  annotations:

@@ -17,14 +17,14 @@ spec:
     serviceName: {{ .Values.service.name }}
     servicePort: {{ .Values.service.port }}
   rules:
-  - host: {{ .Values.ingress.rootDnsZone }}
+  - host: {{ .Values.global.ingress.rootDnsZone }}
     http:
       paths:
       - path: /*
         backend:
           serviceName: redirect
           servicePort: use-annotation
-  - host: {{ .Values.ingress.dnsZone }}
+  - host: {{ .Values.global.ingress.dnsZone }}
     http:
       paths:
       - path: /*

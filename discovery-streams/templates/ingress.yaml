@@ -4,22 +4,25 @@ metadata:
   name: {{ .Chart.Name }}
   namespace: {{ .Release.Namespace }}
   annotations:
+{{- if .Values.ingress.annotations }}
+{{ toYaml .Values.ingress.annotations | trim | indent 4 }}
+{{- end }}
 {{- if .Values.global.ingress.annotations }}
-{{ toYaml .Values.global.ingress.annotations | trim | indent 4 }} 
+{{ toYaml .Values.global.ingress.annotations | trim | indent 4 }}
 {{- end }}
 spec:
   backend:
     serviceName: {{ .Chart.Name }}
     servicePort: {{ .Values.service.port }}
   rules:
-  - host: streams.{{ .Values.global.ingress.dnsZone }}
+  - host: {{ .Values.global.ingress.dnsZone }}
     http:
       paths:
       - path: /
         backend:
           serviceName: {{ .Chart.Name }}
           servicePort: {{ .Values.service.port }}
-  - host: streams.{{ .Values.global.ingress.root_dns_zone }}
+  - host: {{ .Values.global.ingress.root_dns_zone }}
     http:
       paths:
       - path: /
