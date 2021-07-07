@@ -10,7 +10,7 @@ service:
   port: 80
 
 image:
-  name: smartcitiesdata/discovery_ui
+  name: smartcolumbusos/discovery_ui
   tag: development
   environment: "local"
 
