@@ -15,14 +15,14 @@ spec:
     serviceName: {{ .Chart.Name }}
     servicePort: {{ .Values.service.port }}
   rules:
-  - host: {{ .Values.global.ingress.dnsZone }}
+  - host: streams.{{ .Values.global.ingress.dnsZone }}
     http:
       paths:
       - path: /
         backend:
           serviceName: {{ .Chart.Name }}
           servicePort: {{ .Values.service.port }}
-  - host: {{ .Values.global.ingress.root_dns_zone }}
+  - host: streams.{{ .Values.global.ingress.rootDnsZone }}
     http:
       paths:
       - path: /
