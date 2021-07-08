@@ -1,7 +1,7 @@
 global:
-  aws:
-    region: us-west-2
-    bucket: "master-chart-hosted-dataset-files"
+  buckets:
+    region: "us-west-2"
+    hostedFileBucket: "dataset-bucket"
   kafka:
     brokers: pipeline-kafka-bootstrap:9092
   presto:
@@ -15,6 +15,9 @@ global:
     dnsZone: ""
     rootDnsZone: ""
     port: 80
+    scheme: ""
+    subnets: ""
+    security_groups: ""
   objectStore:
     accessKey: []
     accessSecret: []
@@ -34,9 +37,15 @@ odo:
 andi:
   fullnameOverride: andi
   enabled: true
+  ingress:
+    annotations:
 kafka:
   enabled: true
 discovery-api:
+  enabled: true
+discovery-ui:
+  enabled: true
+discovery-streams:
   enabled: true
 
 kubernetes-data-platform:

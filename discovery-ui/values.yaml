@@ -3,6 +3,9 @@ global:
     rootDnsZone: localhost
     dnsZone: localhost
     port: 80
+    scheme: ""
+    subnets: ""
+    security_groups: ""
 
 service:
   name: discovery-ui

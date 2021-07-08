@@ -1,11 +1,7 @@
-# todo: should these be in chart level values? 
-#   do all charts list all the values they need?
-#   could we describe why we're defining global at the chart
-#   level.
 global:
-  aws:
-    region: us-west-2
-    bucket: "master-chart-hosted-dataset-files"
+    buckets:
+      region: us-west-2
+      hostedFileBucket: "dataset-bucket"
   kafka:
     brokers: pipeline-kafka-bootstrap:9092
   presto:
@@ -19,6 +15,9 @@ global:
     rootDnsZone: localhost
     dnsZone: localhost
     port: 80
+    scheme: ""
+    subnets: ""
+    security_groups: ""
 
 resources:
   limits:
@@ -56,18 +55,11 @@ presto:
   schema: "default"
 
 ldap:
-  host: "iam-master.alm.sandbox.internal.smartcolumbusos.com"
-  base: "cn=accounts,dc=sandbox,dc=internal,dc=smartcolumbusos,dc=com"
-  user: "sandbox"
+  host: "ldap.example.com"
+  base: "dc=example,dc=com"
+  user: "binduser"
   account:
     subdn: "cn=users,cn=accounts"
-
-s3:
-  hostedFileBucket: "hosted-dataset-files"
-  hostedFileRegion: "us-west-2"
-
-vault:
-  endpoint: vault.vault:8200
 
 postgres:
   host: "example.com"

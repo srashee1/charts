@@ -1,10 +1,24 @@
+global:
+  kafka:
+    brokers: pipeline-kafka-bootstrap:9092
+  redis:
+    host: redis.external-services
+    password: ""
+  ingress:
+    dnsZone: ""
+    rootDnsZone: ""
+    port: 80
+    scheme: ""
+    subnets: ""
+    security_groups: ""
+
 dashboard:
   title: "Dashboard Metrics"
 
 image:
   repository: smartcitiesdata/discovery_streams
   tag: development
-  pullPolicy: Always
+  pullPolicy: ifNotPresent
 
 replicaCount: 1
 
@@ -23,6 +37,3 @@ service:
   type: NodePort
   port: 80
   targetPort: 4000
-
-ingress:
-  annotations:
