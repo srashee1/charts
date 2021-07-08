@@ -37,18 +37,12 @@ odo:
 andi:
   fullnameOverride: andi
   enabled: true
-  ingress:
-    annotations:
 kafka:
   enabled: true
 discovery-api:
   enabled: true
-  ingress:
-    annotations:
 discovery-ui:
   enabled: true
-  ingress:
-    annotations:
 discovery-streams:
   enabled: true
 
