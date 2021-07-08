@@ -1,7 +1,7 @@
 global:
-    buckets:
-      region: us-west-2
-      hostedFileBucket: "dataset-bucket"
+  buckets:
+    region: us-west-2
+    hostedFileBucket: "dataset-bucket"
   kafka:
     brokers: pipeline-kafka-bootstrap:9092
   presto:
@@ -80,4 +80,7 @@ auth:
   user_info_endpoint: "https://example.com/userinfo"
 
 secrets:
-    discoveryApiPresignKey: ""
+  discoveryApiPresignKey: ""
+
+ingress:
+  annotations:

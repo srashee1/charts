@@ -43,8 +43,12 @@ kafka:
   enabled: true
 discovery-api:
   enabled: true
+  ingress:
+    annotations:
 discovery-ui:
   enabled: true
+  ingress:
+    annotations:
 discovery-streams:
   enabled: true
 
