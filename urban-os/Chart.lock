@@ -12,8 +12,8 @@ dependencies:
   repository: https://Datastillery.github.io/charts
   version: 2.6.1
 - name: andi
-  repository: https://Datastillery.github.io/charts
-  version: 2.0.1
+  repository: file://../andi
+  version: 2.0.2
 - name: external-services
   repository: https://Datastillery.github.io/charts
   version: 1.0.0
@@ -23,5 +23,14 @@ dependencies:
 - name: kubernetes-data-platform
   repository: https://Datastillery.github.io/charts
   version: 1.6.0
-digest: sha256:271927e770477f3510718aaccdc6fa4749bbc32d18807f3158728f5b8d3ecf73
-generated: "2021-06-22T16:24:02.883292-04:00"
+- name: discovery-api
+  repository: file://../discovery-api
+  version: 1.0.0
+- name: discovery-streams
+  repository: file://../discovery-streams
+  version: 1.0.0
+- name: discovery-ui
+  repository: file://../discovery-ui
+  version: 1.0.0
+digest: sha256:27814799ee36daf0b79560d9534bf69269c71bb22686c4817b5aaf8344f205d2
+generated: "2021-07-08T14:37:11.488259-05:00"

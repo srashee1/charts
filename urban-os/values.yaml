@@ -1,8 +1,7 @@
 global:
-  aws:
-    region: us-west-2
   buckets:
-    hostedFileBucket: ""
+    region: "us-west-2"
+    hostedFileBucket: "dataset-bucket"
   kafka:
     brokers: pipeline-kafka-bootstrap:9092
   presto:
@@ -16,6 +15,9 @@ global:
     dnsZone: ""
     rootDnsZone: ""
     port: 80
+    scheme: ""
+    subnets: ""
+    security_groups: ""
   objectStore:
     accessKey: []
     accessSecret: []
@@ -36,6 +38,12 @@ andi:
   fullnameOverride: andi
   enabled: true
 kafka:
+  enabled: true
+discovery-api:
+  enabled: true
+discovery-ui:
+  enabled: true
+discovery-streams:
   enabled: true
 
 kubernetes-data-platform:
