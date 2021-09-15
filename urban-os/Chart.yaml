@@ -22,7 +22,7 @@ dependencies:
     repository: https://Datastillery.github.io/charts
     condition: valkyrie.enabled
   - name: andi
-    version: 2.1.0
+    version: 2.1.1
     repository: https://Datastillery.github.io/charts
     condition: andi.enabled
   - name: external-services
