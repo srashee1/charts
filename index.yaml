@@ -2,6 +2,14 @@ apiVersion: v1
 entries:
   andi:
   - apiVersion: v1
+    created: "2021-09-16T19:36:08.460712336Z"
+    description: REST API to allow for dataset definition ingestion
+    digest: 7468034683db739f923599649c1f60be7e9d906f9453017c4c99b384de641da9
+    name: andi
+    urls:
+    - https://github.com/srashee1/charts/releases/download/andi-2.1.3/andi-2.1.3.tgz
+    version: 2.1.3
+  - apiVersion: v1
     created: "2021-09-16T19:11:35.852860719Z"
     description: REST API to allow for dataset definition ingestion
     digest: 1801f4d33030fa26472171831df70aea2493bed60640c4cc5a7d400d3cb90a0b
@@ -1495,6 +1503,76 @@ entries:
   urban-os:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-09-16T19:36:08.652673912Z"
+    dependencies:
+    - condition: andi.enabled
+      name: andi
+      repository: file://../andi
+      version: 2.1.3
+    - condition: discovery-api.enabled
+      name: discovery-api
+      repository: file://../discovery-api
+      version: 1.2.0
+    - condition: discovery-streams.enabled
+      name: discovery-streams
+      repository: file://../discovery-streams
+      version: 1.0.0
+    - condition: discovery-ui.enabled
+      name: discovery-ui
+      repository: file://../discovery-ui
+      version: 1.0.0
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.14.0
+    - condition: external-services.enabled
+      name: external-services
+      repository: file://../external-services
+      version: 1.0.0
+    - condition: forklift.enabled
+      name: forklift
+      repository: file://../forklift
+      version: 3.1.1
+    - condition: kafka.enabled
+      name: kafka
+      repository: file://../kafka
+      version: 1.0.1
+    - condition: kubernetes-data-platform.enabled
+      name: kubernetes-data-platform
+      repository: file://../kubernetes-data-platform
+      version: 1.6.0
+    - condition: monitoring.enabled
+      name: monitoring
+      repository: file://../monitoring
+      version: 1.0.1
+    - condition: odo.enabled
+      name: odo
+      repository: file://../odo
+      version: 1.1.0
+    - condition: raptor.enabled
+      name: raptor
+      repository: file://../raptor
+      version: 1.1.0
+    - condition: reaper.enabled
+      name: reaper
+      repository: file://../reaper
+      version: 1.1.0
+    - condition: valkyrie.enabled
+      name: valkyrie
+      repository: file://../valkyrie
+      version: 2.6.1
+    - condition: vault.enabled
+      name: vault
+      repository: file://../vault
+      version: 1.3.0
+    description: Master chart that deploys the data platform.
+    digest: 54e1d1c31a44e011bdfd7a2d2e3b33e950472f25cc6212a9cbd11c6b518d7f48
+    name: urban-os
+    urls:
+    - https://github.com/srashee1/charts/releases/download/urban-os-1.8.2/urban-os-1.8.2.tgz
+    version: 1.8.2
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-09-16T19:33:00.166229878Z"
     dependencies:
     - condition: andi.enabled
@@ -2378,4 +2456,4 @@ entries:
     urls:
     - voltron-1.0.0.tgz
     version: 1.0.0
-generated: "2021-09-16T19:33:00.166865581Z"
+generated: "2021-09-16T19:36:08.653372821Z"
